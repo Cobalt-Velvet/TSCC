@@ -1,0 +1,170 @@
+/* CSS 코드 */
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #222222;
+  color: #ffffff;
+}
+
+.clock-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.clock-container .clock {
+  font-size: 16.5rem;
+  color: #ffffff;
+}
+
+#digital-clock {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#digital-clock .time {
+  font-size: 16.5rem;
+  color: #ffffff;
+}
+
+#digital-clock .meridiem {
+  font-size: 1.5rem;
+  color: #cccccc;
+}
+
+.calendar-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 800px;
+}
+
+.calendar {
+  flex: 1;
+  font-size: 1.5rem;
+  background-color: #222222;
+  border-radius: 8px;
+  color: #ffffff;
+  width: 70%;
+}
+
+.calendar .days-of-week {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+  font-weight: bold;
+}
+
+.calendar .days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+}
+
+.calendar .days span {
+  display: block;
+  text-align: center;
+  padding: 8px;
+}
+
+/* 일요일을 빨간색으로 스타일링 */
+.calendar .days span:nth-child(7n) {
+  color: #F31559;
+}
+
+/* 토요일을 파란색으로 스타일링 */
+.calendar .days span:nth-child(7n-1) {
+  color: #9288F8;
+}
+
+/* 다음달과 저번달 날짜를 회색으로 스타일링 */
+.calendar .days span.other-month {
+  color: #7D7463;
+}
+
+.calendar .month-year {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.calendar .current-day {
+  background-color: #E8FFCE;
+  border-radius: 50%;
+  padding: 8px;
+  color: #7C73C0;
+}
+
+.todo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: #222222;
+  border-radius: 8px;
+  color: #ffffff;
+  width: 70%;
+  margin-top: 100px;
+  margin-left: 100px;
+}
+
+.todo-container .todo-input {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.todo-container .todo-input input {
+  flex: 1;
+  font-size: 1rem;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  background-color: #ffffff;
+  color: #222222;
+}
+
+.todo-container .todo-input button {
+  background-color: #ACFADF;
+  color: #0D1282;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.todo-container .todo-list {
+  width: 100%;
+}
+
+.todo-container .todo-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #cccccc;
+  padding: 8px;
+}
+
+.todo-container .todo-list-item:last-child {
+  border-bottom: none;
+}
+
+.todo-container .todo-list-item .delete-button {
+  color: #ff0000;
+  cursor: pointer;
+}
+
+.todo-container .todo-list-item .checked {
+  text-decoration: line-through;
+  color: #777777;
+}
+
+.todo-container .todo-list-item .delete-button {
+  color: #ff0000;
+}

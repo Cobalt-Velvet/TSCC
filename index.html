@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TLCC</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="clock-container">
+    <div id="digital-clock">
+      <div class="time"></div>
+      <div class="meridiem"></div>
+    </div>
+  </div>
+
+  <div class="calendar-container">
+    <div class="calendar">
+      <div class="month-year"></div>
+      <div class="days-of-week">
+        <span>월</span>
+        <span>화</span>
+        <span>수</span>
+        <span>목</span>
+        <span>금</span>
+        <span>토</span>
+        <span>일</span>
+      </div>
+      <div class="days"></div>
+    </div>
+
+    <div class="todo-container">
+      <div class="todo-input">
+        <input type="text" placeholder="할 일을 입력하세요">
+        <button id="add-btn">추가</button>
+      </div>
+      <div class="todo-list"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
