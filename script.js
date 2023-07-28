@@ -1,10 +1,14 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const clock = document.querySelector(".time");
-  const meridiem = document.querySelector(".meridiem");
+  const clockContainer = document.querySelector(".clock-container");
+  const digitalClock = document.getElementById("digital-clock");
   const calendarDays = document.querySelector(".days");
   const todoList = document.querySelector(".todo-list");
   const todoInput = document.querySelector(".todo-input input");
   const addBtn = document.getElementById("add-btn");
+
+  function createClock() {
+    clockContainer.style.visibility = "visible";
+  }
 
   function updateTime() {
     const now = new Date();
@@ -15,6 +19,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const formattedHours = hours % 12 || 12;
     const formattedMinutes = String(minutes).padStart(2, "0");
     const formattedSeconds = String(seconds).padStart(2, "0");
+
+    const clock = document.querySelector(".time");
+    const meridiem = document.querySelector(".meridiem");
 
     clock.textContent = `${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
     meridiem.textContent = amPm;
@@ -73,22 +80,34 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  addBtn.addEventListener("click", function () {
-    const todoText = todoInput.value.trim();
-    if (todoText !== "") {
-      const todoItem = document.createElement("div");
-      todoItem.classList.add("todo-list-item");
-      todoItem.innerHTML = `
-        <input type="checkbox" class="checkbox">
-        <span class="todo-text">${todoText}</span>
-        <span class="delete-button">❌</span>
-      `;
-      todoList.appendChild(todoItem);
-      todoInput.value = "";
-      updateToDoList();
-    }
-  });
+    addBtn.addEventListener("click", function () {
+      const todoText = todoInput.value.trim();
+      if (todoText !== "") {
+        const todoItem = document.createElement("div");
+        todoItem.classList.add("todo-list-item");
+        todoItem.innerHTML = `
+          <input type="checkbox" class="checkbox">
+          <span class="todo-text">${todoText}</span>
+          <span class="delete-button">❌</span>
+        `;
+        todoList.appendChild(todoItem);
+        todoInput.value = "";
+        updateToDoList();
+      }
+    });
 
-  setInterval(updateTime, 1000);
+  // 시계 생성 (시계가 보이도록 스타일 변경)
+  createClock();
+
+  // 시계 업데이트
+  updateTime();
+
+  // 달력 업데이트
   updateCalendar();
+
+  // 할 일 목록 업데이트
+  updateToDoList();
+
+  // 1초마다 시계 업데이트
+  setInterval(updateTime, 1000);
 });
